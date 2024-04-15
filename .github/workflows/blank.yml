@@ -5,7 +5,7 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
-  push:
+  pull-request:
     branches:
       - master
     paths:
@@ -25,3 +25,4 @@ jobs:
         uses: actions/checkout@v2
       - name: success
         run: echo "$(git rev-parse HEAD)"
+        run: echo "$(git rev-parse --abbrev-ref HEAD)"
