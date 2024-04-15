@@ -24,4 +24,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: success
-        run: echo "test"
+        run: echo "$(git rev-parse HEAD)"
