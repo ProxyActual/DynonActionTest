@@ -18,14 +18,10 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    name: Test1
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Create tag
-        run: |
-          if [[ -n $(git diff --name-only HEAD^ HEAD | grep version.txt) ]]; then
-            git tag -a v${{ steps.version.outputs.version }} -m "Version ${{ steps.version.outputs.version }}"
-            git push origin --tags
-          fi
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: success
+        run: echo "test"
