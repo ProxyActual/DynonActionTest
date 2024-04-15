@@ -23,7 +23,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: success
+      - name: unshallow
         run: git fetch --unshallow
-          echo "$(git rev-parse HEAD)"
-          echo "$(git rev-parse --abbrev-ref HEAD)"
+      - name: echoHead
+        run: echo "$(git rev-parse HEAD)"
+      - name: echoRev
+        run: echo "$(git rev-parse --abbrev-ref HEAD)" 
+         
